@@ -2,6 +2,13 @@
 
 This is the same as the explanation on the main page but we're trying to delve a little deeper into the specific terminology to give a clearer overview.
 
+
+# Quantum Finite Automata (QFA) Proposal
+
+Quantum Finite Automata (QFA) are a quantum counterpart of classical finite automata, using the principles of quantum mechanics to process information. A QFA can exist in a superposition of states, and its transitions are determined by complex-valued amplitudes rather than probabilities. QFAs have the potential to solve specific problems more efficiently than their classical counterparts.
+
+In this project, we aim to implement a QFA simulator in C++ with a focus on simplicity and elegance, showcasing the nature of QFAs.
+
 ## 1. QFA State Representation
 Allow users to represent QFA states using N-state qubits, utilizing complex projective space and inner product to define the state space. This feature will enable users to define and manipulate quantum states in the automaton.
 
