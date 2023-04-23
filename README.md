@@ -1,48 +1,45 @@
-# AutomataGroup
+# Quantum Finite Automata (QFA) Features
 
+Here are the 8 features derived from the Measure-once Quantum Finite Automata (MO-QFA) description, each focusing on a specific aspect of the automaton:
 
-#THE FOLLOWING IS AN AI GENERATED DRAFT USED EXPLORING POTENTIAL TOPICS
-
-
-# Quantum Finite Automata (QFA) Proposal
-
-Quantum Finite Automata (QFA) are a quantum counterpart of classical finite automata, using the principles of quantum mechanics to process information. A QFA can exist in a superposition of states, and its transitions are determined by complex-valued amplitudes rather than probabilities. QFAs have the potential to solve specific problems more efficiently than their classical counterparts.
-
-In this project, we aim to implement a QFA simulator in C++ with a focus on simplicity and elegance, showcasing the nature of QFAs through 8 easy-to-grasp features.
-
-## Features
-
-1. **QFA Definition**: Allow users to define QFAs with a specified number of states, input alphabet, transition function, and acceptance function. The transition function will be represented by a complex-valued matrix, where each entry corresponds to the amplitude of the transition between states for a given input symbol.
+## 1. QFA State Representation
+Allow users to represent QFA states using N-state qubits, utilizing complex projective space and inner product to define the state space. This feature will enable users to define and manipulate quantum states in the automaton.
 
 $$
-\text{Transition Matrix} = 
-\begin{pmatrix}
-a_{00} & a_{01} & \cdots & a_{0n} \\
-a_{10} & a_{11} & \cdots & a_{1n} \\
-\vdots & \vdots & \ddots & \vdots \\
-a_{m0} & a_{m1} & \cdots & a_{mn}
-\end{pmatrix}
+|\psi\rangle \in \mathbb{C}P^N
 $$
 
-2. **QFA Simulation**: Simulate the behavior of QFAs on input strings, updating the amplitudes of states based on the transition matrix and input symbols.
-
-3. **Acceptance Criterion**: Determine if an input string is accepted by the QFA based on the squared norm of the amplitude of the initial state after processing the input string. If the acceptance probability is greater than a specified threshold, the input string is accepted.
+## 2. QFA Transitions
+Implement state transitions using N×N unitary matrices for each input symbol. This feature allows users to specify quantum state transitions corresponding to each input symbol.
 
 $$
-P_{accept} = |\alpha_{q_0}|^2
+|\psi'\rangle = U_\alpha |\psi\rangle
 $$
 
-4. **Superposition Visualization**: Provide a visualization tool to help users understand the concept of superposition in QFAs, displaying the amplitudes of states during the simulation process.
+## 3. Quantum Semiautomaton
+Provide the functionality to create a quantum semiautomaton with the triple $(\mathbb{C}P^N, \Sigma, \{U_\alpha\;|\;\alpha\in\Sigma\})$, enabling users to define a quantum automaton with state space, input alphabet, and transition matrices.
 
-5. **Transition Visualization**: Implement a visualization tool to display the state transitions in QFAs based on the input symbols, highlighting the differences between classical and quantum transitions.
+## 4. Acceptance Probability Calculation
+Implement a method to calculate the acceptance probability of a QFA for a given input string using the projection matrix $P$ and the state vector $|\psi\rangle$:
 
-6. **Pattern Recognition Example**: Implement a simple QFA example that demonstrates the use of QFAs in pattern recognition tasks, such as recognizing strings with an even number of `0`s.
+$$
+\operatorname{Pr}(\sigma) = \Vert P U_{\sigma_k} \cdots U_{\sigma_1} U_{\sigma_0}|\psi\rangle\Vert^2
+$$
 
-7. **Palindrome Recognition Example**: Create a QFA example that showcases the ability of QFAs to recognize palindromes, emphasizing the efficiency of quantum computation.
+## 5. Probability Threshold for Acceptance
+Define a probability threshold $p$ for acceptance, such that if $\operatorname{Pr}(\sigma) > p$, the input string is accepted by the QFA.
 
-8. **User Manual**: Provide a clear and concise user manual or tutorial to help users understand how to create, simulate, and visualize QFAs using the implemented simulator.
+## 6. Initial State Probability
+Allow users to calculate the probability of the initial state being an accepted state with:
 
-These features will help users explore the unique properties of Quantum Finite Automata while ensuring that the project remains accessible and engaging. By focusing on simplicity and elegance, we can effectively showcase the nature of QFAs and their potential applications in various computational tasks.
+$$
+\operatorname{Pr}(\varnothing)= \Vert P |\psi\rangle\Vert^2
+$$
 
+## 7. Right-action Alternative
+Offer an alternative definition for QFAs using right-action on Hermitian transpose states to preserve the order of input symbols in the string.
 
+## 8. Regular Language Acceptance
+Implement a method to determine if a regular language is accepted with probability $p$ by a QFA, given that for all sentences $\sigma$ in the language and a fixed initial state $|\psi\rangle$, $p < \operatorname{Pr}(\sigma)$.
 
+These 8 features break down the measure-once quantum finite automata into smaller, more manageable components, allowing users to explore and understand the intricacies of QFAs in a clear and concise manner.
