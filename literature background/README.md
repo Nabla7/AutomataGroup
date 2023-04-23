@@ -68,9 +68,17 @@ int main() {
 ## 2. QFA Transitions
 Implement state transitions using N×N unitary matrices for each input symbol. This feature allows users to specify quantum state transitions corresponding to each input symbol.
 
+A transition matrix represents the evolution of the automaton's internal states when processing a specific input symbol. Each input symbol is associated with an $N \times N$ unitary matrix, where $N$ is the number of internal states of the QFA. 
+
+A unitary matrix $U_\alpha$ associated with an input symbol $\alpha$ describes the transition from the current state $|\psi\rangle$ to the next state $|\psi'\rangle$ as follows:
+
 $$
 |\psi'\rangle = U_\alpha |\psi\rangle
 $$
+
+The transition matrix $U_\alpha$ is a linear transformation that preserves the inner product of the state vector, ensuring that the probabilities (magnitudes squared of the amplitudes) sum up to 1 throughout the evolution of the quantum system.
+
+In MO-QFA, the transition matrices are unitary to ensure the preservation of the quantum mechanical rules and the coherence of the quantum system during the transitions. These matrices play a crucial role in determining the probability of acceptance of a given input string by the automaton.
     
 ```cpp
 class QuantumTransition {
@@ -158,7 +166,7 @@ $$
 \operatorname{Pr}(\varnothing)= \Vert P |\psi\rangle\Vert^2
 $$
 
-### == Examples ==
+### == Examples and Notes ==
     
 
 #### This is an excerpt from https://en.wikipedia.org/wiki/Probability_amplitude , it nicely explains the meaning of probability amplitudes using the polarization of light as a real life example.
@@ -171,3 +179,5 @@ $$|\psi\rangle = \alpha |H\rangle + \beta|V\rangle$$
 The probability amplitudes of $|\psi\rangle$ for the states $|H\rangle$ and $|V\rangle$ are $\alpha$ and $\beta$ respectively. When the photon's polarization is measured, the resulting state is either horizontal or vertical. But in a random experiment, the probability of being horizontally polarized is $|\alpha|^2$, and the probability of being vertically polarized is $|\beta|^2$.
 
 Therefore, for example, a photon in a state $|\psi\rangle = \sqrt{\frac{1}{3}} |H\rangle - i \sqrt{\frac{2}{3}}|V\rangle$ would have a probability of $\frac{1}{3}$ to come out horizontally polarized, and a probability of $\frac{2}{3}$ to come out vertically polarized when an [statistical ensemble (mathematical physics)](https://en.wikipedia.org/wiki/Statistical_ensemble_(mathematical_physics)) of measurements are made. The order of such results, is, however, completely random.
+
+#### We should probably include a little bit about this https://en.wikipedia.org/wiki/Semiautomaton
