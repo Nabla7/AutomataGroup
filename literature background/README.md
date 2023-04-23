@@ -24,47 +24,46 @@ $$
 $$
 
 In the context of the code example provided, the `QuantumState` class represents a quantum state with N-state qubits (generalization of a qubit), and each entry in the `std::vector` of complex numbers corresponds to the amplitude of a basis state in the quantum system.
-    #include <iostream>
-    #include <vector>
-    #include <complex>
 
-    class QuantumState {
-    public:
-        QuantumState(int n) : state_vector(n) {}
+```cpp
+class QuantumState {
+public:
+    QuantumState(int n) : state_vector(n) {}
 
-        void set_amplitude(int index, const std::complex<double>& amplitude) {
-            state_vector[index] = amplitude;
-        }
-
-        std::complex<double> get_amplitude(int index) const {
-            return state_vector[index];
-        }
-
-        void print() const {
-            for (const auto& amplitude : state_vector) {
-                std::cout << amplitude << " ";
-            }
-            std::cout << std::endl;
-        }
-
-    private:
-        std::vector<std::complex<double>> state_vector;
-    };
-
-    int main() {
-        int N = 3; // Number of states in the QFA
-        QuantumState qfa_state(N);
-
-        // Set amplitudes for the quantum state
-        qfa_state.set_amplitude(0, std::complex<double>(0.5, 0.5));
-        qfa_state.set_amplitude(1, std::complex<double>(0.5, -0.5));
-        qfa_state.set_amplitude(2, std::complex<double>(0.0, 0.0));
-
-        // Print the quantum state
-        qfa_state.print();
-
-        return 0;
+    void set_amplitude(int index, const std::complex<double>& amplitude) {
+        state_vector[index] = amplitude;
     }
+
+    std::complex<double> get_amplitude(int index) const {
+        return state_vector[index];
+    }
+
+    void print() const {
+        for (const auto& amplitude : state_vector) {
+            std::cout << amplitude << " ";
+        }
+        std::cout << std::endl;
+    }
+
+private:
+    std::vector<std::complex<double>> state_vector;
+};
+
+int main() {
+    int N = 3; // Number of states in the QFA
+    QuantumState qfa_state(N);
+
+    // Set amplitudes for the quantum state
+    qfa_state.set_amplitude(0, std::complex<double>(0.5, 0.5));
+    qfa_state.set_amplitude(1, std::complex<double>(0.5, -0.5));
+    qfa_state.set_amplitude(2, std::complex<double>(0.0, 0.0));
+
+    // Print the quantum state
+    qfa_state.print();
+
+    return 0;
+}
+```
 
 ## 2. QFA Transitions
 Implement state transitions using N×N unitary matrices for each input symbol. This feature allows users to specify quantum state transitions corresponding to each input symbol.
@@ -72,6 +71,72 @@ Implement state transitions using N×N unitary matrices for each input symbol. T
 $$
 |\psi'\rangle = U_\alpha |\psi\rangle
 $$
+    
+```cpp
+class QuantumTransition {
+public:
+    QuantumTransition(int n) : n_states(n) {}
+
+    void set_transition_matrix(char symbol, const std::vector<std::vector<std::complex<double>>>& matrix) {
+        transition_matrices[symbol] = matrix;
+    }
+
+    QuantumState apply_transition(char symbol, const QuantumState& initial_state) {
+        QuantumState final_state(n_states);
+
+        for (int i = 0; i < n_states; ++i) {
+            std::complex<double> new_amplitude(0, 0);
+
+            for (int j = 0; j < n_states; ++j) {
+                new_amplitude += transition_matrices[symbol][i][j] * initial_state.get_amplitude(j);
+            }
+
+            final_state.set_amplitude(i, new_amplitude);
+        }
+
+        return final_state;
+    }
+
+private:
+    int n_states;
+    std::unordered_map<char, std::vector<std::vector<std::complex<double>>>> transition_matrices;
+};
+
+int main() {
+    int N = 3; // Number of states in the QFA
+
+    // Define the quantum state
+    QuantumState qfa_state(N);
+
+    // Set amplitudes for the quantum state
+    qfa_state.set_amplitude(0, std::complex<double>(0.5, 0.5));
+    qfa_state.set_amplitude(1, std::complex<double>(0.5, -0.5));
+    qfa_state.set_amplitude(2, std::complex<double>(0.0, 0.0));
+
+    // Print the quantum state
+    qfa_state.print();
+
+    // Define the QuantumTransition with the number of states
+    QuantumTransition qfa_transition(N);
+
+    // Set transition matrices for each input symbol
+    qfa_transition.set_transition_matrix('a', {{{1.0, 0.0, 0.0},
+                                                {0.0, 0.5, 0.5},
+                                                {0.0, 0.5, -0.5}}});
+
+    qfa_transition.set_transition_matrix('b', {{{0.5, 0.5, 0.0},
+                                                {0.5, -0.5, 0.0},
+                                                {0.0, 0.0, 1.0}}});
+
+    // Apply the transition based on an input symbol
+    QuantumState final_state = qfa_transition.apply_transition('a', qfa_state);
+
+    // Print the final quantum state after the transition
+    final_state.print();
+
+    return 0;
+}
+```
 
 ## 3. Quantum Semiautomaton
 Provide the functionality to create a quantum semiautomaton with the triple $(\mathbb{C}P^N, \Sigma, \{U_\alpha\;|\;\alpha\in\Sigma\})$, enabling users to define a quantum automaton with state space, input alphabet, and transition matrices.
@@ -93,12 +158,13 @@ $$
 \operatorname{Pr}(\varnothing)= \Vert P |\psi\rangle\Vert^2
 $$
 
-== Examples ==
+### == Examples ==
     
 
-### This is an excerpt from https://en.wikipedia.org/wiki/Probability_amplitude , it nicely explains the meaning of probability amplitudes using the polarization of light as a real life example.
+#### This is an excerpt from https://en.wikipedia.org/wiki/Probability_amplitude , it nicely explains the meaning of probability amplitudes using the polarization of light as a real life example.
+
     
-Take the simplest meaningful example of the discrete case: a quantum system that can be in [two-state quantum system](https://en.wikipedia.org/wiki/Two-state_quantum_system) |two possible states]]: for example, the [light polarization](https://en.wikipedia.org/wiki/Light_polarization) of a [photon](https://en.wikipedia.org/wiki/Photon). When the polarization is measured, it could be the horizontal state $|H\rangle$ or the vertical state $|V\rangle$. Until its polarization is measured the photon can be in a [Quantum superposition](https://en.wikipedia.org/wiki/Quantum_superposition) of both these states, so its state $|\psi\rangle$ could be written as:
+Take the simplest meaningful example of the discrete case: a quantum system that can be in [two possible states](https://en.wikipedia.org/wiki/Two-state_quantum_system): for example, the [light polarization](https://en.wikipedia.org/wiki/Light_polarization) of a [photon](https://en.wikipedia.org/wiki/Photon). When the polarization is measured, it could be the horizontal state $|H\rangle$ or the vertical state $|V\rangle$. Until its polarization is measured the photon can be in a [Quantum superposition](https://en.wikipedia.org/wiki/Quantum_superposition) of both these states, so its state $|\psi\rangle$ could be written as:
 
 $$|\psi\rangle = \alpha |H\rangle + \beta|V\rangle$$
 
