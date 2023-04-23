@@ -93,10 +93,15 @@ $$
 \operatorname{Pr}(\varnothing)= \Vert P |\psi\rangle\Vert^2
 $$
 
-## 7. Right-action Alternative
-Offer an alternative definition for QFAs using right-action on Hermitian transpose states to preserve the order of input symbols in the string.
+== Examples ==
+    
 
-## 8. Regular Language Acceptance
-Implement a method to determine if a regular language is accepted with probability $p$ by a QFA, given that for all sentences $\sigma$ in the language and a fixed initial state $|\psi\rangle$, $p < \operatorname{Pr}(\sigma)$.
+### This is an excerpt from https://en.wikipedia.org/wiki/Probability_amplitude , it nicely explains the meaning of probability amplitudes using the polarization of light as a real life example.
+    
+Take the simplest meaningful example of the discrete case: a quantum system that can be in [two-state quantum system](https://en.wikipedia.org/wiki/Two-state_quantum_system) |two possible states]]: for example, the [light polarization](https://en.wikipedia.org/wiki/Light_polarization) of a [photon](https://en.wikipedia.org/wiki/Photon). When the polarization is measured, it could be the horizontal state $|H\rangle$ or the vertical state $|V\rangle$. Until its polarization is measured the photon can be in a [Quantum superposition](https://en.wikipedia.org/wiki/Quantum_superposition) of both these states, so its state $|\psi\rangle$ could be written as:
 
-These 8 features break down the measure-once quantum finite automata into smaller, more manageable components, allowing users to explore and understand the intricacies of QFAs in a clear and concise manner.
+$$|\psi\rangle = \alpha |H\rangle + \beta|V\rangle$$
+
+The probability amplitudes of $|\psi\rangle$ for the states $|H\rangle$ and $|V\rangle$ are $\alpha$ and $\beta$ respectively. When the photon's polarization is measured, the resulting state is either horizontal or vertical. But in a random experiment, the probability of being horizontally polarized is $|\alpha|^2$, and the probability of being vertically polarized is $|\beta|^2$.
+
+Therefore, for example, a photon in a state $|\psi\rangle = \sqrt{\frac{1}{3}} |H\rangle - i \sqrt{\frac{2}{3}}|V\rangle$ would have a probability of $\frac{1}{3}$ to come out horizontally polarized, and a probability of $\frac{2}{3}$ to come out vertically polarized when an [statistical ensemble (mathematical physics)](https://en.wikipedia.org/wiki/Statistical_ensemble_(mathematical_physics)) of measurements are made. The order of such results, is, however, completely random.
