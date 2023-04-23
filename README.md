@@ -3,17 +3,6 @@
 
 #THE FOLLOWING IS AN AI GENERATED DRAFT USED EXPLORING POTENTIAL TOPICS
 
-1. Quantum Computing:
-Quantum computing is a field of study that aims to develop computer-based technologies centered around the principles of quantum theory, which explains the nature and behavior of energy and matter on quantum (atomic and subatomic) levels. Quantum computers use quantum bits, or qubits, which can exist in multiple states at once, unlike classical bits that can only be in a state of 0 or 1. This unique property of qubits allows quantum computers to perform complex calculations much faster than classical computers in certain scenarios.
-
-2. Automata Theory:
-Automata theory is the study of abstract machines, or automata, and the computational problems that can be solved using these machines. Automata are mathematical models of computation that accept inputs and produce outputs based on a set of rules. Finite automata are a type of automaton with a finite number of states and transitions. They can be deterministic (DFA) or non-deterministic (NFA), and are widely used in various applications such as pattern recognition, lexical analysis, and artificial intelligence.
-
-3. Quantum Finite Automata:
-Quantum finite automata (QFA) are the quantum counterparts of classical finite automata, leveraging the principles of quantum computing to process information. QFAs use quantum states and quantum superposition to represent and manipulate information, leading to different computational properties and capabilities compared to classical finite automata. There are different types of QFAs, such as measure-once quantum finite automata (MO-QFA), measure-many quantum finite automata (MM-QFA), and probabilistic quantum finite automata (PQFA).
-
-4. Measure-Once Quantum Finite Automata (MO-QFA):
-MO-QFA is a type of quantum finite automaton where the quantum system is measured only once at the end of the computation. MO-QFAs consist of a finite set of quantum states, a set of input symbols, an initial state, a transition function that describes the evolution of quantum states based on input symbols, and an acceptance function that determines whether the input string is accepted or rejected. The main advantage of MO-QFAs over classical finite automata is their ability to process certain types of languages more efficiently, with fewer states and transitions.
 
 # Quantum Finite Automata (QFA) Proposal
 
