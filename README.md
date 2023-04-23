@@ -1,6 +1,6 @@
 # Quantum Finite Automata (QFA) Features
 
-Here are the 8 features derived from the Measure-once Quantum Finite Automata (MO-QFA) description, each focusing on a specific aspect of the automaton:
+Here are the 6 tentative features for a Measure-once Quantum Finite Automata (MO-QFA), each focusing on a specific aspect of the automaton:
 
 ## 1. QFA State Representation
 Allow users to represent QFA states using N-state qubits, utilizing complex projective space and inner product to define the state space. This feature will enable users to define and manipulate quantum states in the automaton.
