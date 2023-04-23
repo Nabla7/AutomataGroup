@@ -23,7 +23,7 @@ $$
 |\alpha|^2 + |\beta|^2 = 1
 $$
 
-In the context of the code example provided earlier, the `QuantumState` class represents a quantum state with N-state qubits (generalization of a qubit), and each entry in the `std::vector` of complex numbers corresponds to the amplitude of a basis state in the quantum system.
+In the context of the code example provided, the `QuantumState` class represents a quantum state with N-state qubits (generalization of a qubit), and each entry in the `std::vector` of complex numbers corresponds to the amplitude of a basis state in the quantum system.
     #include <iostream>
     #include <vector>
     #include <complex>
