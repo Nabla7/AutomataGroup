@@ -1,3 +1,10 @@
+
+# Quantum Finite Automata (QFA) Proposal
+
+Quantum Finite Automata (QFA) are a quantum counterpart of classical finite automata, using the principles of quantum mechanics to process information. A QFA can exist in a superposition of states, and its transitions are determined by complex-valued amplitudes rather than probabilities. QFAs have the potential to solve specific problems more efficiently than their classical counterparts.
+
+In this project, we aim to implement a QFA simulator in C++ with a focus on simplicity and elegance, showcasing the nature of QFAs through 8 easy-to-grasp features.
+
 # Quantum Finite Automata (QFA) Features
 
 Here are the 6 tentative features for a Measure-once Quantum Finite Automata (MO-QFA), each focusing on a specific aspect of the automaton:
@@ -35,11 +42,3 @@ Allow users to calculate the probability of the initial state being an accepted 
 $$
 \operatorname{Pr}(\varnothing)= \Vert P |\psi\rangle\Vert^2
 $$
-
-## 7. Right-action Alternative
-Offer an alternative definition for QFAs using right-action on Hermitian transpose states to preserve the order of input symbols in the string.
-
-## 8. Regular Language Acceptance
-Implement a method to determine if a regular language is accepted with probability $p$ by a QFA, given that for all sentences $\sigma$ in the language and a fixed initial state $|\psi\rangle$, $p < \operatorname{Pr}(\sigma)$.
-
-These 8 features break down the measure-once quantum finite automata into smaller, more manageable components, allowing users to explore and understand the intricacies of QFAs in a clear and concise manner.
