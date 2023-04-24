@@ -237,6 +237,8 @@ $$
 ### == Examples and Notes ==
     
 
+---
+
 #### This is an excerpt from https://en.wikipedia.org/wiki/Probability_amplitude , it nicely explains the meaning of probability amplitudes using the polarization of light as a real life example.
 
     
@@ -248,7 +250,11 @@ The probability amplitudes of $|\psi\rangle$ for the states $|H\rangle$ and $|V\
 
 Therefore, for example, a photon in a state $|\psi\rangle = \sqrt{\frac{1}{3}} |H\rangle - i \sqrt{\frac{2}{3}}|V\rangle$ would have a probability of $\frac{1}{3}$ to come out horizontally polarized, and a probability of $\frac{2}{3}$ to come out vertically polarized when an [statistical ensemble (mathematical physics)](https://en.wikipedia.org/wiki/Statistical_ensemble_(mathematical_physics)) of measurements are made. The order of such results, is, however, completely random.
 
+---
+
 #### We should probably include a little bit about this https://en.wikipedia.org/wiki/Semiautomaton
+
+---
 
 #### Something about De Rham curves and quantum finite state machines, it's gonna be harder than we thought
 
