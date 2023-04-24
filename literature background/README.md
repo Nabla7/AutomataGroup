@@ -249,3 +249,15 @@ The probability amplitudes of $|\psi\rangle$ for the states $|H\rangle$ and $|V\
 Therefore, for example, a photon in a state $|\psi\rangle = \sqrt{\frac{1}{3}} |H\rangle - i \sqrt{\frac{2}{3}}|V\rangle$ would have a probability of $\frac{1}{3}$ to come out horizontally polarized, and a probability of $\frac{2}{3}$ to come out vertically polarized when an [statistical ensemble (mathematical physics)](https://en.wikipedia.org/wiki/Statistical_ensemble_(mathematical_physics)) of measurements are made. The order of such results, is, however, completely random.
 
 #### We should probably include a little bit about this https://en.wikipedia.org/wiki/Semiautomaton
+
+#### Something about De Rham curves and quantum finite state machines, it's gonna be harder than we thought
+
+The De Rham curve can be used as an example of a non-simple matrix in the context of a quantum finite state machine (QFSM) because it involves non-trivial quantum interference between two or more paths.
+
+In a QFSM, the state of the system is described by a quantum state, which can be represented by a vector in a Hilbert space. The evolution of this state is described by a unitary matrix, which maps the initial state to the final state. In a classical deterministic finite state machine, the evolution is described by a simple transition matrix.
+
+The De Rham curve can be thought of as a geometric object that defines a non-trivial unitary matrix for a QFSM. In particular, the De Rham curve is a continuous path in a two-dimensional space, and the quantum interference between different paths along this curve can be used to define a non-simple unitary matrix for the QFSM.
+
+This non-simple unitary matrix can then result in more subtle behavior for the QFSM, such as superposition and entanglement, which are not possible in classical deterministic finite state machines.
+
+In summary, the De Rham curve is an example of a non-simple unitary matrix for a quantum finite state machine, which can result in more subtle and non-classical behavior.
