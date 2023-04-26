@@ -16,7 +16,7 @@ $$
 |\psi\rangle \in \mathbb{C}P^N
 $$
 
-In a quantum system, a quantum state is a linear combination of basis states, and each basis state is associated with a complex number called the amplitude. These amplitudes contain information about the probability of the quantum system being in that particular basis state when measured. The square of the absolute value of the amplitude of a basis state represents the probability of finding the quantum system in that specific state when a measurement is performed.
+In a quantum system, a quantum state is a linear combination of basis states, and each basis state is associated with a complex number called the amplitude. These amplitudes contain information about the probability of the quantum system being in that particular basis state when measured. The square of the modulus of the amplitude of a basis state represents the probability of finding the quantum system in that specific state when a measurement is performed.
 
 For example, consider a qubit (2-state system) in the following state:
 
