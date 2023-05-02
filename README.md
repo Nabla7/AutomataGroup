@@ -16,7 +16,7 @@ $$
 |\psi\rangle \in \mathbb{C}P^N
 $$
 
-In a quantum system, a quantum state is a linear combination of basis states, and each basis state is associated with a complex number called the amplitude. These amplitudes contain information about the probability of the quantum system being in that particular basis state when measured. The square of the absolute value of the amplitude of a basis state represents the probability of finding the quantum system in that specific state when a measurement is performed.
+In a quantum system, a quantum state is a linear combination of basis states, and each basis state is associated with a complex number called the amplitude. These amplitudes contain information about the probability of the quantum system being in that particular basis state when measured. The square of the modulus of the amplitude of a basis state represents the probability of finding the quantum system in that specific state when a measurement is performed.
 
 For example, consider a qubit (2-state system) in the following state:
 
@@ -267,3 +267,31 @@ The De Rham curve can be thought of as a geometric object that defines a non-tri
 This non-simple unitary matrix can then result in more subtle behavior for the QFSM, such as superposition and entanglement, which are not possible in classical deterministic finite state machines.
 
 In summary, the De Rham curve is an example of a non-simple unitary matrix for a quantum finite state machine, which can result in more subtle and non-classical behavior.
+
+---
+
+# THE MODEL
+
+https://link.springer.com/article/10.1007/BF00122683
+Bloom, S.L., Sabadini, N. & Walters, R.F.C. Matrices, machines and behaviors. Appl Categor Struct 4, 343–360 (1996). https://doi.org/10.1007/BF00122683
+
+In this section, we consider the question of how to model a machine with $n$
+initial states, $p$ exit states, and $q$ "internal states" by a matrix whose entries are
+finite subsets of $X \cup \{1\}$. (We will write $X_1$ to abbreviate $X \cup \{1\}$.)
+
+One possible definition of a machine from $n$ to $p$ is the following: a machine
+
+$$M = (Q,X,b,e, \delta)$$
+
+consists of a finite set of states $Q$, a set of $n$ begin states, say $b_1,..., b_n$ in $Q$, a
+set of $p$ exit states in $Q$, say $e_1 ,..., e_p$, and a function
+
+$$\delta : Q \times X_1 \rightarrow P(Q)$$
+
+subject to the following restrictions.
+
+- The sets $\{b_1,..., b_n\}$ and $\{e_1,..., e_p\}$ are disjoint.
+- For each exit state $e_i$, and each $x \in X_1$, $\delta(e_i, x) = 0$.
+- For each begin $b_i,x \in X_1$, $b_i \notin \delta(q,x)$, for any $q \subseteq Q$
+
+
