@@ -1,0 +1,10 @@
+digraph {
+	node [color=green shape=circle]
+	0
+	node [color=black shape=doublecircle]
+	1
+	0 -> 1 [label=0]
+	0 -> 0 [label=1]
+	1 -> 1 [label=0]
+	1 -> 0 [label=1]
+}
