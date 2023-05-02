@@ -272,6 +272,9 @@ In summary, the De Rham curve is an example of a non-simple unitary matrix for a
 
 # THE MODEL
 
+https://link.springer.com/article/10.1007/BF00122683
+Bloom, S.L., Sabadini, N. & Walters, R.F.C. Matrices, machines and behaviors. Appl Categor Struct 4, 343–360 (1996). https://doi.org/10.1007/BF00122683
+
 In this section, we consider the question of how to model a machine with $n$
 initial states, $p$ exit states, and $q$ "internal states" by a matrix whose entries are
 finite subsets of $X \cup \{1\}$. (We will write $X_1$ to abbreviate $X \cup \{1\}$.)
