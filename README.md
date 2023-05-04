@@ -1,6 +1,4 @@
-# Quantum Finite Automata (QFA) Features Disambiguation
-
-This is the same as the explanation on the main page but we're trying to delve a little deeper into the specific terminology to give a clearer overview.
+# This is a notepad for putting ideas and whatnot
 
 
 # Quantum Finite Automata (QFA) Proposal
