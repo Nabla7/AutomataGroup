@@ -9,22 +9,19 @@
 #include "QFA.h"
 
 int main() {
-    // create a QFA object
+    // Create the QFA
     QFA qfa;
+    qfa.addState(QFAState(1, 0));
+    qfa.addState(QFAState(0, 1));
 
-    // define the states, alphabet, transition function, start state, and accept states of the QFA
-    // ...
-
-    // simulate the QFA on an input string
-    std::string input = "010101";
-    /*bool isAccepted = qfa.simulate(input);
-
-    // print the result
-    if (isAccepted) {
-        std::cout << "The input string " << input << " is accepted by the QFA." << std::endl;
-    } else {
-        std::cout << "The input string " << input << " is not accepted by the QFA." << std::endl;
-    }*/
+    // Test the QFA on some inputs
+    cout << "QFA recognizes the inputs" << endl;
+    cout << "ab: " << (qfa.accepts("ab") ? "accept" : "reject") << endl;
+    cout << "ba: " << (qfa.accepts("ba") ? "accept" : "reject") << endl;
+    cout << "aaa: " << (qfa.accepts("aaa") ? "accept" : "reject") << endl;
+    cout << "bbb: " << (qfa.accepts("bbb") ? "accept" : "reject") << endl;
+    cout << "ababba: " << (qfa.accepts("ababba") ? "accept" : "reject") << endl;
+    cout << "bbabb: " << (qfa.accepts("bbabb") ? "accept" : "reject") << endl;
 
     return 0;
 }
